@@ -1,0 +1,30 @@
+.logo {
+  flex-shrink: 0;
+}
+
+.bottom {
+  fill: var(--surface);
+  stroke: var(--text);
+  stroke-width: 2;
+}
+
+.top {
+  fill: var(--accent);
+  stroke: var(--text);
+  stroke-width: 2;
+}
+
+.band {
+  stroke: var(--text);
+  stroke-width: 2.5;
+}
+
+.lens {
+  fill: var(--surface);
+  stroke: var(--text);
+  stroke-width: 2.5;
+}
+
+.pupil {
+  fill: var(--text);
+}

@@ -1,0 +1,101 @@
+.none {
+  color: var(--text-muted);
+}
+
+.chain {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.condition {
+  max-width: 110px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  padding: 10px 8px 12px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.node:hover {
+  transform: translateY(-2px);
+  border-color: var(--type-color, var(--accent));
+}
+
+.current {
+  border-color: var(--type-color, var(--accent));
+  background: var(--type-soft, var(--surface-2));
+}
+
+.art {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.number {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .chain {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .step {
+    flex-direction: column;
+  }
+
+  .node {
+    width: 100%;
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .art {
+    width: 56px;
+    height: 56px;
+  }
+
+  .condition {
+    max-width: none;
+  }
+}

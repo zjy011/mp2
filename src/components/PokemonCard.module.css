@@ -1,0 +1,107 @@
+.item {
+  list-style: none;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.number {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: color-mix(in srgb, var(--type-color) 60%, var(--text));
+}
+
+.frame {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  background:
+    radial-gradient(circle at 50% 55%, color-mix(in srgb, var(--type-color) 38%, transparent) 0 42%, transparent 43%),
+    linear-gradient(160deg, var(--type-soft), color-mix(in srgb, var(--type-color) 30%, var(--surface)));
+}
+
+/* Shimmer placeholder until the artwork arrives. */
+.frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 30%) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s linear infinite;
+}
+
+.loaded::before {
+  display: none;
+}
+
+.art {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10%;
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 0.3s, transform 0.3s;
+  filter: drop-shadow(0 8px 10px rgb(0 0 0 / 18%));
+}
+
+.loaded .art {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card:hover .art {
+  transform: scale(1.06);
+}
+
+.caption {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px 14px;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.types {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}

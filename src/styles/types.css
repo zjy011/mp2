@@ -1,0 +1,29 @@
+/*
+ * Per-type colour tokens. Any element with data-type="fire" (etc.) exposes
+ * --type-color / --type-soft to itself and its children, so components can be
+ * tinted by type without inline styles.
+ */
+[data-type] {
+  --type-color: #8a8794;
+  --type-soft: color-mix(in srgb, var(--type-color) 18%, var(--surface));
+  --type-ink: #fff;
+}
+
+[data-type='normal'] { --type-color: #9fa19f; }
+[data-type='fire'] { --type-color: #e8622c; }
+[data-type='water'] { --type-color: #3d8de0; }
+[data-type='electric'] { --type-color: #e8b511; --type-ink: #2b2200; }
+[data-type='grass'] { --type-color: #3fa142; }
+[data-type='ice'] { --type-color: #3dc7d8; --type-ink: #00262b; }
+[data-type='fighting'] { --type-color: #d16a20; }
+[data-type='poison'] { --type-color: #9141cb; }
+[data-type='ground'] { --type-color: #a9733a; }
+[data-type='flying'] { --type-color: #7ea4e8; }
+[data-type='psychic'] { --type-color: #e8457a; }
+[data-type='bug'] { --type-color: #8f9c1a; }
+[data-type='rock'] { --type-color: #ada37c; }
+[data-type='ghost'] { --type-color: #704170; }
+[data-type='dragon'] { --type-color: #5060e1; }
+[data-type='dark'] { --type-color: #50413f; }
+[data-type='steel'] { --type-color: #60a1b8; }
+[data-type='fairy'] { --type-color: #e78ee8; --type-ink: #3a0d3b; }

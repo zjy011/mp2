@@ -1,0 +1,130 @@
+:root {
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Space Grotesk', var(--font-body);
+
+  --bg: #f6f4ef;
+  --surface: #ffffff;
+  --surface-2: #f0ede6;
+  --border: #e3ded3;
+  --text: #1d1b22;
+  --text-muted: #6b6774;
+  --accent: #d9342b;
+  --accent-strong: #b0231b;
+  --accent-soft: #fbe4e1;
+  --focus: #2d6cdf;
+  --warning-bg: #fff4d6;
+  --warning-text: #6b4a00;
+
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 1px 2px rgb(20 16 30 / 6%), 0 1px 1px rgb(20 16 30 / 4%);
+  --shadow: 0 6px 20px rgb(20 16 30 / 8%), 0 2px 6px rgb(20 16 30 / 5%);
+  --shadow-lg: 0 18px 40px rgb(20 16 30 / 14%);
+
+  --page-max: 1180px;
+  --gutter: clamp(16px, 4vw, 32px);
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131218;
+    --surface: #1c1b23;
+    --surface-2: #25232e;
+    --border: #322f3c;
+    --text: #f1eff6;
+    --text-muted: #a29fae;
+    --accent: #ff5a4e;
+    --accent-strong: #ff7a70;
+    --accent-soft: #3a1f1f;
+    --focus: #7aa7ff;
+    --warning-bg: #3a2f12;
+    --warning-text: #f5d58a;
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 40%);
+    --shadow: 0 6px 20px rgb(0 0 0 / 35%);
+    --shadow-lg: 0 18px 40px rgb(0 0 0 / 50%);
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

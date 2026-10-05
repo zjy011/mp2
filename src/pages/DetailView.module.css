@@ -1,0 +1,466 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ---------- Top bar ---------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.back:hover {
+  border-color: var(--type-color);
+}
+
+.position {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.positionLabel {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.arrow {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--type-color);
+  color: var(--type-ink);
+  font-size: 1.6rem;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s, filter 0.15s;
+}
+
+.arrow:hover {
+  transform: scale(1.07);
+  filter: brightness(1.05);
+}
+
+.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  filter: grayscale(1);
+  box-shadow: none;
+}
+
+.arrow.disabled:hover {
+  transform: none;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(260px, 5fr) 6fr;
+  gap: 32px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--type-soft), var(--surface) 70%);
+  border: 1px solid var(--border);
+}
+
+.artPanel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 50% 55%, color-mix(in srgb, var(--type-color) 45%, transparent) 0 40%, transparent 41%),
+    color-mix(in srgb, var(--type-color) 22%, var(--surface));
+  overflow: hidden;
+}
+
+.bigNumber {
+  position: absolute;
+  bottom: -0.18em;
+  right: 0.1em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(4rem, 12vw, 8rem);
+  line-height: 1;
+  color: color-mix(in srgb, var(--type-color) 30%, transparent);
+  pointer-events: none;
+}
+
+.art {
+  position: relative;
+  width: 86%;
+  height: 86%;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 18px rgb(0 0 0 / 22%));
+  animation: pop-in 0.35s ease-out;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: color-mix(in srgb, var(--type-color) 70%, var(--text));
+}
+
+.name {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+.genus {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.tag {
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f6c445, #e8902b);
+  color: #3b2300;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.types {
+  display: flex;
+  gap: 6px;
+}
+
+.flavor {
+  margin: 8px 0 4px;
+  padding: 12px 16px;
+  border-left: 4px solid var(--type-color);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--surface);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.quickFacts {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.quickFacts > div {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.quickFacts dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.quickFacts dd {
+  margin: 2px 0 0;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Cards ---------- */
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  margin-bottom: 16px;
+}
+
+.profile {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 20px;
+}
+
+.profile dt {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.profile dd {
+  margin: 2px 0 0;
+  font-weight: 600;
+}
+
+.profile > div:first-child {
+  grid-column: 1 / -1;
+}
+
+.abilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ability {
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  font-size: 0.9rem;
+}
+
+.hidden {
+  border: 1px dashed var(--text-muted);
+  background: transparent;
+}
+
+.hidden small {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.profileNote {
+  grid-column: 1 / -1;
+  color: var(--text-muted);
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.inlineButton {
+  border: none;
+  background: none;
+  padding: 0;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* ---------- Bottom pager ---------- */
+
+.pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.pagerCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 84px;
+  padding: 10px 18px;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+a.pagerCard:hover {
+  border-color: var(--type-color);
+  transform: translateY(-2px);
+}
+
+.pagerNext {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+span.pagerCard {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+}
+
+span.pagerNext {
+  align-items: flex-end;
+}
+
+.pagerArrowGlyph {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+}
+
+.pagerSprite {
+  width: 64px;
+  height: 64px;
+  image-rendering: pixelated;
+  border-radius: 12px;
+  background: var(--type-soft);
+}
+
+.pagerText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pagerCaption {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.pagerName {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hint {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Buttons used in error states ---------- */
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.button,
+.ghostButton {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+}
+
+.button:hover {
+  background: var(--accent-strong);
+}
+
+.ghostButton {
+  border: 1.5px solid var(--border);
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 16px;
+  }
+
+  .artPanel {
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .position {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .arrows {
+    margin-left: auto;
+  }
+
+  .profile {
+    grid-template-columns: 1fr;
+  }
+
+  .pager {
+    grid-template-columns: 1fr;
+  }
+
+  .hint {
+    display: none;
+  }
+}
